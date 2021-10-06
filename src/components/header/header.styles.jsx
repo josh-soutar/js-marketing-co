@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 
 const OptionContainerStyles = css`
   padding: 10px 15px;
+  border-radius: 4px;
   cursor: pointer;
+
+  ${(props) =>
+    props.active &&
+    css`
+      font-weight: bold;
+      color: yellow;
+    `}
 `;
 
 export const HeaderContainer = styled.div`
@@ -13,7 +21,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   margin-bottom: 25px;
   padding-left: 15px;
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : "red")};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : "white")};
 `;
 
 export const LogoContainer = styled(Link)`
@@ -31,8 +39,19 @@ export const OptionsContainer = styled.div`
   justify-content: flex-end;
 `;
 
+const PrimaryOption = css`
+  background-color: orange;
+`;
+
+const getButtonStyles = (props) => {
+  if (props.primary) {
+    return PrimaryOption;
+  }
+};
+
 export const OptionLink = styled(Link)`
   ${OptionContainerStyles}
+  ${getButtonStyles}
 `;
 
 export const OptionDiv = styled.div`
