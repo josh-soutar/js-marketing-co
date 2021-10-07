@@ -11,28 +11,24 @@ const Header = () => {
 
   function setHeaderColor(pathname) {
     switch (pathname) {
-      case "/":
-        return "green";
-      case "/about":
-        return "purple";
-      case "/contact":
-        return "lightblue";
+      case "/page with a different header color here":
+        return "white";
       default:
-        return "red";
+        return "transparent";
     }
   }
 
   return (
-    <HeaderContainer bgColor={bgColor}>
+    <HeaderContainer bgColor={bgColor} className="header">
       <LogoContainer to="/">js-marketing-co</LogoContainer>
       <OptionsContainer>
-        <OptionLink active={pathname === "/about" ? 1 : 0} to="/about">
+        <OptionLink $active={pathname === "/about" ? 1 : 0} to="/about">
           WHO WE ARE
         </OptionLink>
-        <OptionLink active={pathname === "/clients" ? 1 : 0} to="/clients">
+        <OptionLink $active={pathname === "/clients" ? 1 : 0} to="/clients">
           OUR CLIENTS
         </OptionLink>
-        <OptionLink active={pathname === "/contact"} primary to="/contact">
+        <OptionLink $active={pathname === "/contact"} $primary to="/contact">
           GET IN TOUCH
         </OptionLink>
       </OptionsContainer>

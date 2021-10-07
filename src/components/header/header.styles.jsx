@@ -7,20 +7,18 @@ const OptionContainerStyles = css`
   cursor: pointer;
 
   ${(props) =>
-    props.active &&
+    props.$active &&
     css`
       font-weight: bold;
-      color: yellow;
     `}
 `;
 
 export const HeaderContainer = styled.div`
   width: 100%;
+  padding: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  padding-left: 15px;
   background-color: ${({ bgColor }) => (bgColor ? bgColor : "white")};
 `;
 
@@ -44,7 +42,7 @@ const PrimaryOption = css`
 `;
 
 const getButtonStyles = (props) => {
-  if (props.primary) {
+  if (props.$primary) {
     return PrimaryOption;
   }
 };
